@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	<property name="url" value="jdbc:mysql://localhost:3306/sys"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="root"></property>
+</bean>
+
+<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+   <constructor-arg ref="dataSource"></constructor-arg>
+</bean>
+
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  <property name="dataSource" ref="dataSource"></property>
+</bean>
+
+<bean id="companyDao" class="com.declarative.dao.CompanyDao">
+  <property name="namedJdbcTemplate" ref="namedParameterJdbcTemplate"></property>
+</bean>
+
+<bean id="jobDao" class="com.declarative.dao.JobDao">
+   <property name="namedJdbcTemplate" ref="namedParameterJdbcTemplate"></property>
+</bean>
+</beans>
