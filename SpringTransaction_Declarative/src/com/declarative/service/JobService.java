@@ -10,7 +10,8 @@ import com.declarative.bo.JobBo;
 import com.declarative.command.JobCommand;
 import com.declarative.dao.CompanyDao;
 import com.declarative.dao.JobDao;
-
+/*In this service class we are converting the Command Object to Bo Class 
+ * and we are calling Dao classes persistence methods*/
 public class JobService {
 	
     private JobDao jobDao;

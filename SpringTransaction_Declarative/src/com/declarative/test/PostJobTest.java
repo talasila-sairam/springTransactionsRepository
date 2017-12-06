@@ -7,7 +7,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.annotation.java.config.RootConfig;
 import com.declarative.command.JobCommand;
 import com.declarative.controller.PostJobController;
-
+/*This calss acts as JSP page(in web application) this will send the form data.but spring internally it will convert into
+ * Pojo object that is called Coomand or form object by passing this object directly it will call controller
+ * */
 public class PostJobTest {
 public static void main(String[] args) {
 	ApplicationContext context = new ClassPathXmlApplicationContext("com/declarative/common/application-context.xml");

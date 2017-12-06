@@ -9,8 +9,11 @@ import org.springframework.stereotype.Repository;
 import com.declarative.bo.CompanyBo;
 import com.declarative.bo.JobBo;
 
-
+/*Here we are performing the persistence operation on company table.And we are writing the SQL Query here itself.and we are providing the NamedparameterJdbcTemplate
+ * So that we can match Bo class with substitute parameters by using BeanPropertySqlParameter class
+ * */
 public class CompanyDao {
+	
 	
 	private static String  SQL_INSERT_COMPANY = "insert into sys.company(company_id ,location ,company_name ,service_type) values(:companyId ,:location ,:location ,:serviceType)";
 	private NamedParameterJdbcTemplate namedJdbcTemplate;

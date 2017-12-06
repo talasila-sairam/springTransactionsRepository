@@ -2,6 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- In real time we will not configure all the beans inside one spring bean configuration file
+	Bcz one can not understand by looking at this and readability 
+	will be decreased.so they will configure all the beans inside 
+	different files and they will import all the configuration files 
+	inside one configuration file 
+	The order of importing is also very important first we need to identify the dependency then we have to import
+	-->
 <import resource="persistence-beans.xml"/>
 <import resource="service-beans.xml"/>
 <import resource="controller-beans.xml"/>

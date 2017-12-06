@@ -6,14 +6,31 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+<!-- This is advice class configuration. This class is provided by Spring people 
+Bcz this is common cross cutting logic that every one has to write 
+Begin the transaction and comiting the transaction and rollbacking the transaction
+ -->		
 <tx:advice id="txAdvice" transaction-manager="transactionManager">
   <tx:attributes>
     <tx:method name="postJob" read-only="false"/>
+    <!-- 
+    This tag will make aop applicable to the methods which are starting with
+    post and rest is anything
+     <tx:method name="post*" read-only="false"/>
+     
+     This tag will make aop will not applicable to methods i.e * appart from starting with post
+     both the tags we need to write
+     <tx:method name="*" read-only="true"/>
+     -->
   </tx:attributes>
 </tx:advice>
 
+<!-- This is aop configuration tags inside this we are writing pointcut means to which method we are adviceing this aspect  -->
 <aop:config>
   <aop:pointcut expression="target(com.declarative.service.JobService)" id="jobservicePointCut"/>
+  
+  <!-- Unlike in aspect j configuration approach here we are writing this advisor tag 
+  this configration approach is for Spring AOP -->
   <aop:advisor advice-ref="txAdvice" pointcut-ref="jobservicePointCut"/>
 </aop:config>
 </beans>

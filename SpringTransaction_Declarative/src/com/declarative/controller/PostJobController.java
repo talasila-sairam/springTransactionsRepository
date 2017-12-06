@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import com.declarative.command.JobCommand;
 import com.declarative.service.JobService;
 
+/*This is controller class and it will talks with Services by passing command object that is comming from jsp*/
 public class PostJobController {
 	
 	public JobService getJobService() {
