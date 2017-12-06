@@ -11,7 +11,7 @@ import com.declarative.controller.PostJobController;
  * Pojo object that is called Coomand or form object by passing this object directly it will call controller
  * */
 public class PostJobTest {
-public static void main(String[] args) {
+public static void main(String[] args)throws Exception {
 	ApplicationContext context = new ClassPathXmlApplicationContext("com/declarative/common/application-context.xml");
 	System.out.println("Inside main method");
 	JobCommand jobCommand = null;

@@ -12,16 +12,22 @@ Begin the transaction and comiting the transaction and rollbacking the transacti
  -->		
 <tx:advice id="txAdvice" transaction-manager="transactionManager">
   <tx:attributes>
-    <tx:method name="postJob" read-only="false"/>
+    <tx:method name="postJob" read-only="false"  rollback-for="com.declarative.exception.JobNotCreatedException"/>
     <!-- 
     This tag will make aop applicable to the methods which are starting with
     post and rest is anything
      <tx:method name="post*" read-only="false"/>
-     
+    
      This tag will make aop will not applicable to methods i.e * appart from starting with post
      both the tags we need to write
      <tx:method name="*" read-only="true"/>
+     
+     rollback-for="com.declarative.exception.JobNotCreatedException" 
+     this attribute is used to configure multiple Checked exceptions.Bcz incase of checked exceptions spring provided Transaction Advice class i.e
+     around and afterThrowing advice will not perform rollback operation for checked exception by default.we have to explicitly configurer this details using
+     Transaction Attributes and we have to provide the fully qulified name also
      -->
+     
   </tx:attributes>
 </tx:advice>
 

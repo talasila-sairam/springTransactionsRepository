@@ -19,7 +19,7 @@ public class PostJobController {
 
 	private JobService jobService;
 	
-	public void execute(JobCommand jobCommand) {
+	public void execute(JobCommand jobCommand)throws Exception{
 		System.out.println("inside execute method");
 		jobService.postJob(jobCommand);
 	}
