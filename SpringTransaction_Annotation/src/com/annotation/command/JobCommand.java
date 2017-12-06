@@ -1,5 +1,9 @@
 package com.annotation.command;
 
+/*This Object will carry the entire data i.e comming from JSP Form it is a pojo calss
+ * and we can send this object from one layer to another layer.because as it is pojofied
+ * Incase of struts it is a actionfrom class.incase of Springs it is Pojo class only
+ * */
 public class JobCommand {
 private int jobNo;
 private String title;

@@ -4,18 +4,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.annotation.bo.CompanyBo;
 import com.annotation.bo.JobBo;
 import com.annotation.command.JobCommand;
 import com.annotation.dao.CompanyDao;
 import com.annotation.dao.JobDao;
+
+/*This annotation will makes this class as bean inside the IOC Container
+ * Service classes communicate with Service classes so it required these 
+ * two classes as dependent this can be resolved by writing the Autowired annotation
+ * */
 @Service
 public class JobService {
 	@Autowired
     private JobDao jobDao;
 	@Autowired
     private CompanyDao companyDao;
+	
+	/*This annotation will helps this method participating in Transactions bcz here we are not writing any pointcut.bcz if you wuse annotations you 
+	 * will specify pointcut by writing around or before or after annotation on top if it.but incase we no need to write any thing internally it 
+	 * will identify by using This annotation Transactional.In Declarative approach we will specify pointcut but incase of Annotations it will identify
+	 * by this annotation
+	 * */
     @Transactional(readOnly=false)
 	public void postJob(JobCommand jobCommand) {
 		System.out.println("inside sevice class of postJob method");

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.annotation.command.JobCommand;
 import com.annotation.controller.PostJobController;
 import com.annotation.java.config.RootConfig;
-
+/*Here we are creating ApplicationContext through Complete java Config file and Annotations.here we need to pass java config file to create it*/
 public class PostJobTest {
 public static void main(String[] args) {
 	ApplicationContext context = new AnnotationConfigApplicationContext(RootConfig.class);

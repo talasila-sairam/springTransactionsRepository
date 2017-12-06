@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.annotation.bo.CompanyBo;
 import com.annotation.bo.JobBo;
 
+/*This Repository annotation will helps you in Making this class as bean inside Spring Bean Configuration file with out writing the 
+ * Spring Bean Configuration file.This required JdbcTemplate or NamedParameterJdbcTemplate to perform DataBAse Persistence operation
+ *Here this class performing the persistence operations based on jdbcTemplate so this dependency we can resolve by using Aoutowired Annotation
+ * */
 @Repository
 public class CompanyDao {
 	
